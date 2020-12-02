@@ -133,10 +133,7 @@ class WxController extends Controller
 //                    echo "";
 //                    die;
                     switch ($data->Content){
-                        case "你好":
-                            $category=1;
-                            $content=$this->chinese($data);
-                            break;
+
                         case "天气":
                             $category=1;
                             $content=$this->weather1();
@@ -152,8 +149,8 @@ class WxController extends Controller
                             $content=date('Y-m-d H:i:s',time());
                             break;
                         default:
-                            $category = 1;
-                            $content  = "啊，亲，我疯了，你在说什么";
+                            $category=1;
+                            $content=$this->chinese($data);
                             break;
                     }
                     $toUser   = $data->FromUserName;
