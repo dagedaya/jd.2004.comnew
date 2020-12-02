@@ -628,6 +628,7 @@ class WxController extends Controller
      */
     public function chinese($data){
         $text=$data->Content;
+       // $text="你好";
         $data=file_get_contents('http://api.tianapi.com/txapi/pinyin/index?key='.env('WX_APIKEY').'&text='.$text.' ');//api接口
         $json=json_decode($data,true);//将json解析成数组
 //        if($json['code'] == 200){ //判断状态码
@@ -635,11 +636,13 @@ class WxController extends Controller
 //        }else{
 //            echo "返回错误，状态消息：".$json['msg'];
 //        }
+
         if($json['code']==200){
             $content="";
             foreach($json['newslist'] as $k=>$v){
                 $content.='全称:'.$v['pinyin'].'简称:'.$v['jianxie'];
             }
+            dd($content);
             Log::info('===='.$content);
             echo $content;
         }
