@@ -133,7 +133,7 @@ class WxController extends Controller
 //                    echo "";
 //                    die;
                     switch ($data->Content){
-                        case "text":
+                        case "你好":
                             $category=1;
                             $content=$this->chinese($data);
                             break;
@@ -641,7 +641,7 @@ class WxController extends Controller
                 $content.='全称:'.$v['pinyin'].'简称:'.$v['jianxie'];
             }
             Log::info('===='.$content);
-            return $content;
+            echo $content;
         }
     }
 
