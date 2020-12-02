@@ -642,9 +642,9 @@ class WxController extends Controller
             foreach($json['newslist'] as $k=>$v){
                 $content.='全称:'.$v['pinyin'].'简称:'.$v['jianxie'];
             }
-            dd($content);
             Log::info('===='.$content);
-            echo $content;
+            return $content;
+
         }
     }
 
